@@ -46,6 +46,7 @@ jobs:
           path: ${{ github.sha }}.zip
   publish:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Create release
         id: create_release
@@ -58,4 +59,3 @@ jobs:
           body: New release for ${{ github.sha }}. Release notes can be found in the docs.
           draft: false
           prerelease: false
-          
